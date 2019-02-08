@@ -1,16 +1,13 @@
 {
-  "search.exclude": {
-    "**/dist": true
-  },
-  "javascript.preferences.quoteStyle": "single",
-  "typescript.preferences.quoteStyle": "single",
-  "prettier.singleQuote": true,
-  "editor.renderWhitespace": "all",
-  "html.format.wrapLineLength": 140,
-  "editor.wordWrapColumn": 140,
-  "prettier.proseWrap": "always",
-  "editor.wrappingIndent": "indent",
-  "editor.wordWrap": "wordWrapColumn",
-  "html.format.wrapAttributes": "force-aligned",
-  "editor.formatOnSave": true
+    "search.exclude": {
+        "**/dist": true,
+        "**/node_modules": true
+    },
+    "editor.renderWhitespace": "all",
+    "editor.formatOnSave": true,
+    "editor.wrappingIndent": "indent",
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 140,
+    "html.format.wrapLineLength": 140,
+    "html.format.wrapAttributes": "force-aligned"
 }
