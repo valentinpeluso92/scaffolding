@@ -11,6 +11,7 @@
         "build": "ng build --watch",
         "e2e": "ng e2e",
         "app": "npm run build:ssr && npm run serve:ssr",
+        "pre-commit": "echo \"Work\"",
         "build:ssr": "npm run build:client-and-server-bundles && npm run webpack:server",
         "serve:ssr": "node dist/server.js",
         "build:client-and-server-bundles": "ng build --prod && ng run angular.io-example:server",
@@ -69,9 +70,9 @@
         "url": "https://github.com/valentinpeluso92/scaffolding",
         "type": "Github"
     },
-    "pre-commit": {
-        "run": "lint"
-    },
+    "pre-commit": [
+        "pre-commit"
+    ],
     "author": {
         "name": "Angular 7 - Saffolding",
         "email": "valentinpeluso@gmail.com"
