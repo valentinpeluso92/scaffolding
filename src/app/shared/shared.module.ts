@@ -1,20 +1,9 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {
-  MatSidenavModule,
-  MatToolbarModule,
-  MatNavList,
-  MatSidenavContainer,
-  MatSidenavContent,
-  MatToolbar
-} from '@angular/material';
-
-import { NavComponent } from './nav/nav.component';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 
 @NgModule({
-  imports: [CommonModule, MatSidenavModule, MatToolbarModule],
-  declarations: [NavComponent, MatNavList],
-  exports: [NavComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    declarations: [],
+    exports: [],
+    imports: [CommonModule],
 })
 export class SharedModule {}
