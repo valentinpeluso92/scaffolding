@@ -24,6 +24,8 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatButtonModule, MatIconModule, MatListModule, MatSidenavModule, MatToolbarModule } from '@angular/material';
 
 import { NavComponent } from './shared/nav/nav.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
     bootstrap: [AppComponent],
@@ -52,6 +54,7 @@ import { NavComponent } from './shared/nav/nav.component';
         MatSidenavModule,
         MatIconModule,
         MatListModule,
+        ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     ],
     providers: [HeroService, MessageService],
 })
