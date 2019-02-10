@@ -4,8 +4,7 @@
                  fixedInViewport="true"
                  [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
                  [mode]="(isHandset$ | async) ? 'over' : 'side'"
-                 [opened]="!(isHandset$ | async)"
-                 disableClose="true">
+                 [opened]="!(isHandset$ | async)">
         <mat-toolbar>Menu</mat-toolbar>
         <mat-nav-list>
             <a mat-list-item
