@@ -1,5 +1,6 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { MatSidenavContainer } from '@angular/material';
 
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -12,7 +13,11 @@ import { map } from 'rxjs/operators';
 export class NavComponent {
     public isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset).pipe(map(result => result.matches));
 
+    @ViewChild(MatSidenavContainer) public sidenavContainer: MatSidenavContainer;
+
     constructor(private breakpointObserver: BreakpointObserver) {}
 
-    public onSidenavClose(): void {}
+    public close(): void {
+        this.sidenavContainer.close();
+    }
 }
