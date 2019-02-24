@@ -13,4 +13,6 @@ export class NavComponent {
     public isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset).pipe(map(result => result.matches));
 
     constructor(private breakpointObserver: BreakpointObserver) {}
+
+    public onSidenavClose(): void {}
 }
