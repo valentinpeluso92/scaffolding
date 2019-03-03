@@ -33,7 +33,12 @@
                             },
                             "src/manifest.json"
                         ],
-                        "styles": ["./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css", "src/styles.scss"],
+                        "styles": [
+                            "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
+                            "src/styles.scss",
+                            "src/materialIcons.css",
+                            "src/familyRoboto.css"
+                        ],
                         "scripts": []
                     },
                     "configurations": {
