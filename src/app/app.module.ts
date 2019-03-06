@@ -17,9 +17,7 @@ import { NavComponent } from './shared/nav/nav.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
-import { EffectsModule } from '@ngrx/effects';
-import { AppEffects } from './app.effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
     bootstrap: [AppComponent],
@@ -39,8 +37,8 @@ import { AppEffects } from './app.effects';
         MatListModule,
         MatMenuModule,
         ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-        StoreModule.forRoot(reducers, { metaReducers }),
-        EffectsModule.forRoot([AppEffects]),
+        StoreModule.forRoot({}),
+        StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     ],
     providers: [],
 })

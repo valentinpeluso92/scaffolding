@@ -1,9 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
+import { StoreModule } from '@ngrx/store';
+
+import * as fromSharedState from './shared.reducer';
 
 @NgModule({
     declarations: [],
     exports: [],
-    imports: [CommonModule],
+    imports: [CommonModule, StoreModule.forFeature('shared', fromSharedState.reducers)],
 })
 export class SharedModule {}
