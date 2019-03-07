@@ -1,12 +1,8 @@
-import { ActionReducer, ActionReducerMap, createFeatureSelector, createSelector, MetaReducer } from '@ngrx/store';
+import { ActionReducerMap, MetaReducer } from '@ngrx/store';
 
 import { environment } from '../../environments/environment';
 import * as navReducer from './nav/reducers/nav.reducer';
-import { INavState } from './nav/states/nav.state';
-
-export interface ISharedState {
-    nav: INavState;
-}
+import { ISharedState } from './shared.state';
 
 export const reducers: ActionReducerMap<ISharedState> = {
     nav: navReducer.reducer,
