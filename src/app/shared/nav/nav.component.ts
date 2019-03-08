@@ -10,7 +10,7 @@ import { Store, select } from '@ngrx/store';
 import { ToggleNavAction } from './actions/toggle-nav.actions';
 import { INavState } from './states/nav.state';
 import * as navReducer from './reducers/nav.reducer';
-import { IState } from '../../reducers';
+import { IState } from '../shared.state';
 
 @Component({
     selector: 'app-nav',

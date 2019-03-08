@@ -8,4 +8,4 @@ export const reducers: ActionReducerMap<ISharedState> = {
     nav: navReducer.reducer,
 };
 
-export const metaReducers: MetaReducer<ISharedState>[] = !environment.production ? [] : [];
+export const metaReducers: Array<MetaReducer<ISharedState>> = !environment.production ? [] : [];

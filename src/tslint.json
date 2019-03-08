@@ -5,6 +5,7 @@
         "component-selector": [true, "element", "app", "kebab-case"],
         "no-submodule-imports": false,
         "ordered-imports": false,
-        "object-literal-sort-keys": false
+        "object-literal-sort-keys": false,
+        "no-implicit-dependencies": false
     }
 }

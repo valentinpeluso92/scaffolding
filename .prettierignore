@@ -1,0 +1,12 @@
+### assets ###
+src/assets/fonts/
+src/assets/icons/
+src/assets/img/
+
+### minified ###
+*.min.*
+
+### Others ###
+src/browserslist
+src/favicon.ico
+.prettierignore
