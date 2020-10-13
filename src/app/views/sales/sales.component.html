@@ -1,0 +1,68 @@
+<mat-tab-group mat-stretch-tabs class="stretched-tabs" (selectedTabChange)="onChangeTab($event)" [selectedIndex]="tabSelected$ | async">
+    <mat-tab *ngFor="let tab of tabs$ | async">
+        <ng-template mat-tab-label>
+            <span [ngClass]="{ 'skeleton tab-name': isLoading$ | async }">{{ tab.name }}</span>
+        </ng-template>
+        <div class="table-container">
+            <table mat-table [dataSource]="tab.sales">
+                <!-- Descripción -->
+                <ng-container matColumnDef="description">
+                    <th mat-header-cell *matHeaderCellDef>
+                        <div class="skeleton table-header-cell" *ngIf="isLoading$ | async"></div>
+                        <div *ngIf="!(isLoading$ | async)">Descripción</div>
+                    </th>
+                    <td mat-cell *matCellDef="let sale">{{ sale.product.description }}</td>
+                    <td mat-footer-cell *matFooterCellDef>
+                        <div class="skeleton table-footer-cell" *ngIf="isLoading$ | async"></div>
+                        <div *ngIf="!(isLoading$ | async)">Total</div>
+                    </td>
+                </ng-container>
+
+                <!-- Cantidad de vendidos Column -->
+                <ng-container matColumnDef="soldQuantity">
+                    <th mat-header-cell *matHeaderCellDef class="center-cell">
+                        <div class="skeleton table-header-cell" *ngIf="isLoading$ | async"></div>
+                        <div *ngIf="!(isLoading$ | async)">Vendidos</div>
+                    </th>
+                    <td mat-cell *matCellDef="let sale" class="center-cell">{{ sale.soldQuantity }}</td>
+                    <td mat-footer-cell *matFooterCellDef class="center-cell">
+                        <div class="skeleton table-footer-cell" *ngIf="isLoading$ | async"></div>
+                        <div *ngIf="!(isLoading$ | async)">{{ getSoldQuantityTotal(tab.sales) }}</div>
+                    </td>
+                </ng-container>
+
+                <!-- ingresos -->
+                <ng-container matColumnDef="income">
+                    <th mat-header-cell *matHeaderCellDef class="center-cell">
+                        <div class="skeleton table-header-cell" *ngIf="isLoading$ | async"></div>
+                        <div *ngIf="!(isLoading$ | async)">Ingreso</div>
+                    </th>
+                    <td mat-cell *matCellDef="let sale" class="center-cell">{{ getIncome(sale) | currency }}</td>
+                    <td mat-footer-cell *matFooterCellDef class="center-cell">
+                        <div class="skeleton table-footer-cell" *ngIf="isLoading$ | async"></div>
+                        <div *ngIf="!(isLoading$ | async)">{{ getTotalIncome(tab.sales) | currency }}</div>
+                    </td>
+                </ng-container>
+
+                <!-- Icon -->
+                <ng-container matColumnDef="icon">
+                    <th mat-header-cell *matHeaderCellDef class="center-cell">
+                        <div class="skeleton table-header-cell" *ngIf="isLoading$ | async"></div>
+                        <div *ngIf="!(isLoading$ | async)">Icono</div>
+                    </th>
+                    <td mat-cell *matCellDef="let sale" class="center-cell">
+                        <img class="icon" [src]="sale.product.icon" />
+                    </td>
+                    <td mat-footer-cell *matFooterCellDef class="center-cell">
+                        <div class="skeleton table-footer-cell" *ngIf="isLoading$ | async"></div>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+                <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+            </table>
+        </div>
+    </mat-tab>
+</mat-tab-group>
+<app-add-button [link]="'/newSale'"></app-add-button>

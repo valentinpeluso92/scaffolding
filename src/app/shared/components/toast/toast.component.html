@@ -1,0 +1,4 @@
+<p class="toast" [ngClass]="{ '-success': isSuccess(type$ | async), '-danger': isDanger(type$ | async) }">
+    <span>{{ msg$ | async }}</span>
+    <mat-icon *ngIf="isSuccess(type$ | async)">check_circle_outline</mat-icon>
+</p>

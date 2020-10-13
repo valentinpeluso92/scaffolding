@@ -1,0 +1,32 @@
+<mat-sidenav-container class="sidenav-container" [hasBackdrop]="true" *ngIf="!(isLoading$ | async)">
+    <!--TODO - Transformar en constantes todos los strings de negocio hardcodeados (Titulos, botones, etc... )-->
+    <mat-sidenav
+        #drawer
+        class="sidenav"
+        fixedInViewport="true"
+        [attr.role]="'navigation'"
+        [mode]="'over'"
+        [opened]="isOpened$ | async"
+        (openedChange)="toggleNav($event)"
+    >
+        <mat-toolbar>Menu</mat-toolbar>
+        <mat-nav-list>
+            <a mat-list-item *ngFor="let item of items$ | async" [routerLink]="item.link" (click)="changeItem(item)" href="">
+                <mat-icon>{{ item.icon }}</mat-icon> <span class="nav-caption">{{ item.name }}</span>
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+                <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+            </button>
+            <span *ngIf="itemSelected$ | async">{{ (itemSelected$ | async).name }}</span>
+        </mat-toolbar>
+
+        <div class="app-container">
+            <router-outlet></router-outlet>
+            <app-spinner></app-spinner>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

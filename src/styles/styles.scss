@@ -1,0 +1,22 @@
+@import './material.scss';
+@import './skeleton.scss';
+@import './familyRoboto.scss';
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html,
+body,
+main {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.icon {
+    height: 45px;
+    width: 45px;
+}

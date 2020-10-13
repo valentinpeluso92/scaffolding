@@ -1,0 +1,7 @@
+<div mat-dialog-content>
+    <p>{{ msg$ | async }}</p>
+</div>
+<div mat-dialog-actions class="buttons-container">
+    <button mat-raised-button color="warn" (click)="disagreement()">No</button>
+    <button mat-raised-button color="primary" (click)="agree()">Si</button>
+</div>

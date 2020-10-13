@@ -1,0 +1,9 @@
+.actions-header,
+.actions-cell {
+    width: 80px;
+}
+
+.actions-cell button {
+    padding: 0;
+    min-width: 40px;
+}

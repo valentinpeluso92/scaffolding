@@ -1,0 +1,46 @@
+.skeleton {
+    @include background-gradient;
+    animation: shine-lines $animation-duration infinite ease-out;
+}
+
+.skeleton-container {
+    display: flex;
+    flex-direction: column;
+
+    .skeleton-block {
+        height: 40px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+
+        &.skeleton-buttons {
+            margin-bottom: 0;
+            border-radius: 0%;
+            display: flex;
+            justify-content: space-around;
+
+            .skeleton-button {
+                height: 36px;
+                width: 88px;
+                border-radius: 4px;
+            }
+        }
+    }
+}
+
+@keyframes shine-lines {
+    0% {
+        background-position: -100px;
+    }
+
+    30% {
+        background-position: 50px;
+    }
+
+    60% {
+        background-position: 200px;
+    }
+
+    100% {
+        background-position: 350px;
+    }
+}

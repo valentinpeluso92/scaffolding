@@ -1,0 +1,18 @@
+.toast {
+    display: block;
+    padding: 15px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.-success {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+}
+.-danger {
+    background-color: #ff5722;
+    color: white;
+    border-color: #ff5722;
+}

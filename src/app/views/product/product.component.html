@@ -1,0 +1,11 @@
+<app-form [form]="productForm$ | async" [isLoading]="isLoading$ | async"></app-form>
+<div class="buttons-container" *ngIf="!(isLoading$ | async)">
+    <button mat-raised-button color="warn" [disabled]="!(productForm$ | async).isDirty" (click)="reset()">Resetear</button>
+    <button mat-raised-button color="primary" [disabled]="!(productForm$ | async).isValid" (click)="save()">Guardar</button>
+</div>
+<div class="skeleton-container" *ngIf="isLoading$ | async">
+    <div class="skeleton-block skeleton-buttons">
+        <div class="skeleton skeleton-button"></div>
+        <div class="skeleton skeleton-button"></div>
+    </div>
+</div>

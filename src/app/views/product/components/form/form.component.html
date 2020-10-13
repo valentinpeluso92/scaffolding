@@ -1,0 +1,35 @@
+<div class="skeleton-container" *ngIf="isLoading">
+    <div class="skeleton-block skeleton"></div>
+    <div class="skeleton-block skeleton"></div>
+    <div class="skeleton-block skeleton"></div>
+    <div class="skeleton-block skeleton"></div>
+</div>
+<form [formGroup]="formGroup" class="form-container" *ngIf="!isLoading">
+    <mat-form-field>
+        <input matInput placeholder="Descripción" formControlName="description" />
+        <mat-error *ngIf="formGroup.controls['description'].hasError('required')">Campo requerido!</mat-error>
+        <mat-error *ngIf="formGroup.controls['description'].hasError('maxlength')">Muy largo!</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-select placeholder="Icono" formControlName="icon">
+            <mat-option value="option">Option</mat-option>
+        </mat-select>
+        <mat-error *ngIf="formGroup.controls['icon'].hasError('required')">Campo requerido!</mat-error>
+        <mat-error *ngIf="formGroup.controls['icon'].hasError('maxlength')">Muy largo!</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Precio de venta" type="number" formControlName="price" />
+        <span matPrefix>$&nbsp;</span>
+        <span matSuffix>.00</span>
+        <mat-error *ngIf="formGroup.controls['price'].hasError('required')">Campo requerido!</mat-error>
+        <mat-error *ngIf="formGroup.controls['price'].hasError('maxlength')">Muy largo!</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Cantidad disponible" type="number" formControlName="disponibility" />
+        <mat-error *ngIf="formGroup.controls['disponibility'].hasError('required')">Campo requerido!</mat-error>
+        <mat-error *ngIf="formGroup.controls['disponibility'].hasError('maxlength')">Muy largo!</mat-error>
+    </mat-form-field>
+</form>
